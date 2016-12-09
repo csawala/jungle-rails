@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authorize
-    redirect_to new_session_url unless current_user
+    redirect_to new_session_url unless current_user.admin
   end
 
   private
