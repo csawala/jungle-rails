@@ -1,0 +1,10 @@
+<h2>Order Confirmation Details:</h2>
+<p>
+  Please find below the details of your most recent order <strong>(<%= @order.id %>)</strong>.<br>
+</p>
+<% @order.line_items.each do |li| %>
+  <%= render 'order_items', product_id: li[:product_id], quantity: li[:quantity] %>
+<% end %>
+<hr>
+<p>Ya'll come back and spend your money again soon!</p>
+<p>Thank you!</p>

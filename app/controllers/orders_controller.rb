@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    # @line_item = LineItem.find_by_order_id(@order.id)
   end
 
   def create
@@ -54,6 +53,11 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+
+    # Upon saved order, trigger email notification
+    if order.save
+      Mailer.order_email(order).deliver_now
+    end
     order
   end
 

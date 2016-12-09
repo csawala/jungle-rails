@@ -1,0 +1,4 @@
+<% if product = Product.find_by(id: product_id) %>
+  <h4><%= product.name %></h4>
+  <h3><%= quantity %> @ <%= humanized_money_with_symbol (product.price * quantity) %></h3>
+<% end %>
