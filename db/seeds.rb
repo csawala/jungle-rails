@@ -132,5 +132,12 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+cat3.products.create!({
+  name:  'Priceless Art',
+  description: 'Now significantly more priced!',
+  image: open_asset('furniture4.jpg'),
+  quantity: 11,
+  price: 1_101.10
+})
 
 puts "DONE!"
