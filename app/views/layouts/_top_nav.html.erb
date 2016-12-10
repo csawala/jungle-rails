@@ -29,6 +29,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="sign-in-up-out"">
           <% if current_user %>
+            <span>Signed in as <%= current_user.email %></span>
             <span><%= fa_icon "sign-out" %></span>
             <span><%= link_to 'Sign Out', '/logout' %></span>
           <% else %>
