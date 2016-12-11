@@ -85,4 +85,16 @@ main section.products-show {
   }
 }
 
+nav .sign-in-up-out {
+  padding-top: 1em;
+  .signed-in-as {
+    // font-size: 90%;
+    color: #999797;
+    padding-right: 0.5em;
+  }
+
+  .signup, .login, .signout {
+    padding-right: 1em;
+  }
+}
 

@@ -19,13 +19,50 @@
           <dt>Description</dt>
           <dd><%= @product.description %></dd>
           <dt>Quantity</dt>
-          <dd><%= @product.quantity %></dd>
+          <dd>
+            <% if @product.quantity == 0 %>
+              --- Sold Out ---
+            <% else %>
+              <%= @product.quantity %>
+            <% end %>
+          </dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
       </div>
     </div>
-
   </article>
 
+  <article class="comment-details">
+    <h4>Ratings & Comments</h4>
+    <div class="cmnt-creation">
+      <% if current_user %>
+        <% if !@commented_by_user %>
+          <div class="cmnt-form">
+            <%= form_for [@product, @comment] do |f| %>
+              <div class="cmnt-rating">Rating: <%= f.select :rating, (1..5) %></div>
+              <div class="cmnt-content">Comment: <%= f.text_field :content %></div>
+              <div class="cmnt-submit"><%= f.submit %></div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="cmnt-display">
+      <% if @product.comments.count == 0 %>
+        <div class="cmnt-first-to-rate">Be the first to rate & comment!</div>
+      <% else %>
+        <table class="cmnt-table">
+          <thead>
+            <th class="cmnt-rating-title">Rating</th>
+            <th class="cmnt-comment-title">Comment</th>
+          </thead>
+          <tbody>
+            <%= render 'comments' %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </article>
 </section>

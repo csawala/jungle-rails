@@ -140,4 +140,26 @@ cat3.products.create!({
   price: 1_101.10
 })
 
+
+puts 'Creating test Admin'
+User.destroy_all
+# create initial test admin
+User.create!({
+  first_name: 'Ultimate',
+  last_name: 'Warrior',
+  email: 'inaccessibleuser@noooope.com',
+  password: 'createANewUserAndManuallyEditAdminStatus',
+  admin: false
+})
+
+puts 'Creating test comment/rating'
+Comment.destroy_all
+#create initial test comment
+Comment.create!({
+  content: 'Citrus Oculus... Magnificent',
+  rating: 5,
+  product_id: 13,
+  user_id: 1
+})
+
 puts "DONE!"

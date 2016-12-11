@@ -1,0 +1,16 @@
+<% @product.comments.each do |comment| %>
+  <tr class="cmnt-render-row">
+    <td class="cmnt-row-rating"><%= comment.rating %></td>
+    <td class="cmnt-row-content"><%= comment.content %></td>
+    <% if current_user && (current_user.id == comment.user_id) %>
+      <td class="cmnt-row-delete">
+        <%= link_to fa_icon('trash'),
+          product_comment_path(@product, comment.id),
+          method: :delete,
+          class: 'cmnt-delete-btn',
+          data: { confirm: "Delete comment: Are you sure?" }
+        %>
+      </td>
+    <% end %>
+  </tr>
+<% end %>
