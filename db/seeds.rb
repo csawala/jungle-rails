@@ -147,19 +147,10 @@ User.destroy_all
 User.create!({
   first_name: 'Ultimate',
   last_name: 'Warrior',
-  email: 'inaccessibleuser@noooope.com',
-  password: 'createANewUserAndManuallyEditAdminStatus',
-  admin: false
+  email: 'admin@test.com',
+  password: 'test',
+  admin: true
 })
 
-puts 'Creating test comment/rating'
-Comment.destroy_all
-#create initial test comment
-Comment.create!({
-  content: 'Citrus Oculus... Magnificent',
-  rating: 5,
-  product_id: 13,
-  user_id: 1
-})
 
 puts "DONE!"

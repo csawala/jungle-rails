@@ -1,8 +1,10 @@
 <section class="cart-show">
 
   <% if cart.size == 0 %>
-    <h2>Your cart looks to be cold and lonely...</h2>
-    <h3><%= link_to 'Go pick some things and come on back ;)', :root %></h3>
+    <div class="empty-cart-show">
+      <h2>Your cart looks to be cold and lonely...</h2>
+      <h3><%= link_to 'Go pick some things and come on back ;)', :root %></h3>
+    </div>
   <% else %>
     <header class="page-header">
       <h1>My Cart</h1>
