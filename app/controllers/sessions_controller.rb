@@ -3,11 +3,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_email(params[:email])
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect_to :root
+    user = User.authenticate_with_credentials(params[:email], params[:password])
+
+    if user
+      # success logic, log them in
+      session[:user_id] = user.id
+      if user.admin
+        redirect_to admin_root_url
+      else
+        redirect_to :root
+      end
     else
+      # failure, render login form
       redirect_to new_session_url
     end
   end

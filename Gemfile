@@ -45,6 +45,13 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.5'
+end
+
+group :test do
+  gem 'database_cleaner', '~> 1.5'
+end
+
+group :development, :test, :production do
   gem 'factory_girl_rails'
 end
 
@@ -59,5 +66,4 @@ end
 group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
-  gem 'factory_girl_rails'
 end
