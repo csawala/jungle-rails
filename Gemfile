@@ -48,7 +48,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'database_cleaner', '~> 1.5'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :development, :test, :production do
